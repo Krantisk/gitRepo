@@ -1,0 +1,38 @@
+package com.sg.automation.methods;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.sg.automation.driver.DriverScript;
+
+public class AppIndependentMethods extends DriverScript{
+	/************************************************
+	 * Method Name		: getDateTime()
+	 * Purpose			: to create the time stamp in required format
+	 * Author			:
+	 * Reviewer			:
+	 * Arguments		: strDateformat
+	 * Return type		: String
+	 * Date Created		:
+	 * **********************************************
+	 */
+	public String getDateTime(String strDateformat)
+	{
+		Date dt = null;
+		SimpleDateFormat sdf = null;
+		try {
+			dt = new Date();
+			sdf = new SimpleDateFormat(strDateformat);
+			return sdf.format(dt);
+		}catch(Exception e)
+		{
+			System.out.println("Exception in getDateTime() method. "+e.getMessage());
+			return null;
+		}
+		finally
+		{
+			dt = null;
+			sdf = null;
+		}
+	}
+}

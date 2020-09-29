@@ -1,0 +1,22 @@
+package com.sg.automation.driver;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.sg.automation.methods.AppDependentMethods;
+import com.sg.automation.methods.AppIndependentMethods;
+import com.sg.automation.methods.Datatable;
+import com.sg.automation.methods.TaskModuleMethods;
+import com.sg.automation.methods.UserModuleMethods;
+import com.sg.automation.reports.ReportUtils;
+
+public class DriverScript {
+	public static AppIndependentMethods appInd = null;
+	public static AppDependentMethods appDep = null;
+	public static Datatable datatable = null;
+	public static UserModuleMethods userMethods = null;
+	public static TaskModuleMethods tastMethods = null;
+	public static ReportUtils reports = null;
+	public static ExtentReports extent = null;
+	public static ExtentTest test = null;
+	public static String controller = null;
+}

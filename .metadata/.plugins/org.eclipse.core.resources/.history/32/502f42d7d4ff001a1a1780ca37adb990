@@ -1,0 +1,50 @@
+package com.sg.automation.reports;
+
+import java.io.File;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.sg.automation.driver.DriverScript;
+
+public class ReportUtils extends DriverScript{
+
+	/*****************************************
+	 * Method Name	: 
+	 * Purpose		:
+	 * Arguments	:
+	 * Return Type	:
+	 * Author		:
+	 ****************************************/
+	public ExtentReports startReport(String fileName, String testCaseID, String buildNum)
+	{
+		String strPath = null;
+		File resLocation = null;
+		File resScreenshot = null;
+		try {
+			strPath = System.getProperty("user.dir")+"\\Results\\"+buildNum;
+			
+			resLocation = new File(strPath + "\\" +testCaseID);
+			if(!resLocation.exists()) {
+				resLocation.mkdir();
+			}
+			
+			resScreenshot = new File(resLocation +"\\screenshot");
+			if(!resScreenshot.exists()) {
+				resScreenshot.mkdir();
+			}
+			
+			extent = new ExtentReports(resLocation +"\\"+ fileName +appInd.getDateTime("ddMMyyyy_hhmmss")+".html", true);
+			extent.addSystemInfo("Host Name", System.getProperty("os.name"));
+			extent.addSystemInfo("User Name", System.getProperty("user.name"));
+			extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
+			return extent;
+		}catch(Exception e)
+		{
+			System.out.println("Exception in startTest() method. "+e.getMessage());
+			return null;
+		}
+		finally {
+			strPath = null;
+			resLocation = null;
+			resScreenshot = null;
+		}
+	}
+}
