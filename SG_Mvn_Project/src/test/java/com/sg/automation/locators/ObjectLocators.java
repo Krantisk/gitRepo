@@ -20,4 +20,12 @@ public interface ObjectLocators {
 	String obj_CreateUser_Btn = "//span[text()='Create User']";
 	String obj_DeleteUser_Btn = "//button[contains(text(), 'Delete User')]";
 	String obj_LoginHeader = "//td[@id='headerContainer']";
+	
+	
+	
+	
+	
+	String obj_CreateUser_Btn1 = "//span[text()='Create User']";
+	String obj_DeleteUser_Btn1 = "//button[contains(text(), 'Delete User')]";
+	String obj_LoginHeader1 = "//td[@id='headerContainer']";
 }
